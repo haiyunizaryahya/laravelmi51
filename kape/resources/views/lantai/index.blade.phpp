@@ -1,0 +1,21 @@
+@extends('layouts.main')
+@section('content')
+
+<table class="table">
+    <tr>
+        <th>Nama Lantai </th>
+    </tr>
+    @foreach ($lantai as $row )
+    <tr>
+        <tr>
+            <td>
+                {{$row ['nama_lantai']}}
+
+            </td>
+        </tr>
+                
+        @endforeach
+    
+</table>
+@endsection
+
