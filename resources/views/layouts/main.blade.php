@@ -87,14 +87,18 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 User
                             </a>
-                            <a class="nav-link" href="{{route('perawatan.index')}}">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Perawatan
+                            <a class="nav-link" href="{{route('jadwal.index')}}">
+                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                    Jadwal Staff
                             </a>
-                            <a class="nav-link" href="{{route('perawatan.index')}}">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Permintaan Perawatan
-                            </a>
+                            {{-- <a class="nav-link" href="{{route('perawatan.index')}}"> --}}
+                                {{-- <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div> --}}
+                                {{-- Perawatan --}}
+                            {{-- </a> --}}
+                            {{-- <a class="nav-link" href="{{route('perawatan.index')}}"> --}}
+                                {{-- <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div> --}}
+                                {{-- Permintaan Perawatan --}}
+                            {{-- </a> --}}
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">

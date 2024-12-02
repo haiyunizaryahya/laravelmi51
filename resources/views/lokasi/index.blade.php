@@ -2,10 +2,18 @@
 @section('content')
 <div class="container">
     <h1>Ruang</h1>
-    <a class="btn btn-primary mb-3" href="{{ route('lokasi.create') }}">Tambah Lokasi</a>
+    <a class="btn btn-primary mb-3" href="{{ route('lokasi.create') }}">Tambah Ruangan</a>
+    
     @if (session('success'))
         <div class="alert alert-success">{{ session('success') }}</div>
     @endif
+
+    <!-- Search Form -->
+    <form action="{{ route('lokasi.index') }}" method="GET" class="mb-3">
+        <input type="text" name="search" placeholder="Cari Ruangan..." class="form-control" style="width: auto; display: inline-block;">
+        <button type="submit" class="btn btn-secondary">Cari</button>
+    </form>
+
     <table class="table table-striped">
         <thead>
             <tr>

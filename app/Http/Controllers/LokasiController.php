@@ -8,9 +8,20 @@ use App\Models\Lantai;
 
 class LokasiController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $lokasis = Lokasi::with('lantai')->get();
+        $query = $request->input('search');
+        
+        // Fetch lokasi with optional searching
+        if ($query) {
+            $lokasis = Lokasi::with('lantai')
+                ->where('nama_lokasi', 'LIKE', "%{$query}%")
+                ->orWhere('kategori', 'LIKE', "%{$query}%")
+                ->get();
+        } else {
+            $lokasis = Lokasi::with('lantai')->get();
+        }
+
         return view('lokasi.index', compact('lokasis'));
     }
 
@@ -32,10 +43,17 @@ class LokasiController extends Controller
         return redirect()->route('lokasi.index')->with('success', 'Lokasi created successfully.');
     }
 
-    public function edit(Lokasi $lokasi)
+    public function edit($id)
     {
-        $lantais = Lantai::all();
-        return view('lokasi.edit', compact('lokasi', 'lantais'));
+        $lokasi = Lokasi::find($id);
+
+        // Check if the location exists
+        if (!$lokasi) {
+            return redirect()->route('lokasi.index')->with('error', 'Lokasi tidak ditemukan.');
+        }
+
+        // Return the edit view with the location data
+        return view('lokasi.edit', compact('lokasi'));
     }
 
     public function update(Request $request, Lokasi $lokasi)
