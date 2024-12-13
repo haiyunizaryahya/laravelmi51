@@ -62,43 +62,45 @@
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">Menu</div>
-                             <a class="nav-link" href="{{url('dashboard')}}">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Dasboard
-                            </a>
-                            <a class="nav-link" href="{{route('lantai.index')}}">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Lokasi
-                            </a>
-
-                            <a class="nav-link" href="{{route('lokasi.index')}}">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Ruang
-                            </a>
-                            <a class="nav-link" href="{{route('sarana.index')}}">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Sarana
-                            </a>
-                            <a class="nav-link" href="{{route('laporan.index')}}">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Laporan
-                            </a>
-                            <a class="nav-link" href="{{route('user.index')}}">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                User
-                            </a>
-                            <a class="nav-link" href="{{route('jadwal.index')}}">
-                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            @if(Auth::user()->role == 'u' || Auth::user()->role == 's')
+                                <a class="nav-link" href="{{route('jadwal.index')}}">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-timer-alt"></i></div>
                                     Jadwal Staff
-                            </a>
-                            {{-- <a class="nav-link" href="{{route('perawatan.index')}}"> --}}
-                                {{-- <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div> --}}
-                                {{-- Perawatan --}}
-                            {{-- </a> --}}
-                            {{-- <a class="nav-link" href="{{route('perawatan.index')}}"> --}}
-                                {{-- <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div> --}}
-                                {{-- Permintaan Perawatan --}}
-                            {{-- </a> --}}
+                                </a>
+                                <a class="nav-link" href="{{route('laporan.index')}}">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                    Laporan
+                                </a>
+                            @else
+                                <a class="nav-link" href="{{url('dashboard')}}">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                    Dashboard
+                                </a>
+                                <a class="nav-link" href="{{route('lantai.index')}}">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                    Lokasi
+                                </a>
+                                <a class="nav-link" href="{{route('lokasi.index')}}">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                    Ruang
+                                </a>
+                                <a class="nav-link" href="{{route('sarana.index')}}">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                    Sarana
+                                </a>
+                                <a class="nav-link" href="{{route('laporan.index')}}">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                    Laporan
+                                </a>
+                                <a class="nav-link" href="{{route('user.index')}}">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-user-alt"></i></div>
+                                    User
+                                </a>
+                                <a class="nav-link" href="{{route('jadwal.index')}}">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-timer-alt"></i></div>
+                                    Jadwal Staff
+                                </a>
+                            @endif
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">
